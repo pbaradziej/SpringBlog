@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebApplication3PB">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebApplication3PB</output-path>
+    <root id="archive" name="WebApplication3PB.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebApplication4PB" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

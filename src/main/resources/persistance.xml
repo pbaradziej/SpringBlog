@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="persistenceUnit">
+        <!--        <class>net.javaata.CountriesEntity</class>-->
+        <!--        <class>net.javaata.DepartmentsEntity</class>-->
+        <!--        <class>net.javaata.EmployeesEntity</class>-->
+        <!--        <class>net.javaata.EmployeeSalaryEntity</class>-->
+        <!--        <class>net.javaata.EmplDemoEntity</class>-->
+        <!--        <class>net.javaata.JobsEntity</class>-->
+        <!--        <class>net.javaata.JobGradesEntity</class>-->
+        <!--        <class>net.javaata.JobHistoryEntity</class>-->
+        <!--        <class>net.javaata.LocationsEntity</class>-->
+        <!--        <class>net.javaata.RegionsEntity</class>-->
+        <!--        <class>net.javaata.SampleDatesEntity</class>-->
+        <class>webappservlet.data.User</class>
+        <class>webappservlet.data.Post</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/blog_db"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
+</persistence>
