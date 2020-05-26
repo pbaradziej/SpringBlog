@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="http://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="../public/css/index.css" th:href="@{/css/index.css}"/>
-<script src="https://kit.fontawesome.com/be1973d3d0.js" crossorigin="anonymous"></script>
-<head>
-    <meta charset="utf-8"/>
-    <title></title>
-</head>
-<body>
-<div align="center">
-    <h1>Edit Post</h1>
-    <br />
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org" xmlns:visibility="http://www.w3.org/1999/xhtml">
+
+    <head th:replace="layout :: site-head">
+        <title>Edit Post</title>
+    </head>
+
+    <body>
+
+    <header th:replace="layout :: site-header"></header>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="in">
     <form th:action="@{/update}" th:object="${post}"
           th:method="patch">
         <head>
@@ -27,30 +27,27 @@
             </style>
         </head>
 
-        <table border="0" cellpadding="10">
-            <tr>
+        <div class = "centr"><p>Edytuj post</p></div>
+        <div class = "lefts">
                 <input type="hidden" id="id" th:field="*{id}"/>
                 <input type="hidden" id="author.id" th:field="*{author.id}"/>
                 <input type="hidden" id="author.username" th:field="*{author.username}"/>
-                <td>title</td>
-            <td><input type="text" th:field="*{title}" /></td>
-            </tr>
-            <tr>
-                <td>category</td>
-                <td><input type="text" th:field="*{category}" /></td>
-            </tr>
-            <tr>
-                <td>img</td>
-                <td><input type="text" th:field="*{img}" /></td>
-            </tr>
-            <tr>
-                <td>body</td>
-                <td><input type="text" th:field="*{body}" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit" value="Confirm edit">Save</button> </td>
-            </tr>
-        </table>
-    </form>
-</div>
-</body>
+<!--                <td>title</td>-->
+            <input class="texts" type = "text" id="title" th:field="*{title}" name = "titles" placeholder = "Title" required minlength="4" formControlName = "titles">
+            <br/>
+            <input class="texts" type = "text" id="category" th:field="*{category}" name = "category" placeholder = "category" formControlName = "category">
+            <input class="texts" type = "text" id="img" th:field="*{img}" name = "category" placeholder = "LinkImage" formControlName = "category">
+            <br/>
+            </div>
+                <div class ="rights">
+                    <input class= textlong type = "text" id="body" th:field="*{body}" name = "textlong" placeholder = "Text" formControlName = "category">
+                </div>
+                <input type="submit" [disabled] = "!formdata.valid" class = "forsubmit" value="Confirm edit">
+             </form>
+            </div>
+        </div>
+        <footer th:replace="footer :: site-footer"></footer>
+    </div>
+    </body>
+
+    </html>

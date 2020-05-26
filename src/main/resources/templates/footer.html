@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<footer th:fragment="site-footer">
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>O mnie:</h2>
+            <p>Nazywam się Paweł Baradziej i jestem początkującym programistą. Studiuję na Uniwersytecie Śląskim.</p>
+            <hr>
+            <h2>Dzisiaj jest:</h2>
+<!--            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js">var i =0;</script>-->
+<!--            <script>-->
+<!--                const today = moment();-->
+<!--                document.write("<p>" + today.format('DD-MM-YYYY') + "</p>")-->
+<!--            </script>-->
+            <hr>
+            <h2>Kategorie:</h2>
+            <span ng-click="sortBy('item.category')"></span>
+            <button class="btn" href="/filter/Sport">Sport</button>
+            <button class="btn" href="/filter/Zwierzęta">Zwierzęta</button>
+            <button class="btn" href="/filter/Gry">Gry</button>
+            <button class="btn" href="/filter/Wiadomości">Wiadomości</button>
+        </div>
+        <div class="card">
+            <h2>Moje profile:</h2>
+            <button class="btn" onclick="window.location.href = 'https://github.com/pbaradziej';">Github</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="pagination">
+        <!--    <a href="#">&laquo;</a>-->
+        <a href="/1">1</a>
+        <a href="/2">2</a>
+        <a href="/3">3</a>
+        <a href="/4">4</a>
+        <a href="/5">5</a>
+        <a href="/6">6</a>
+        <!--    <a href="#">&raquo;</a>-->
+    </div>
+    <div class="footer">
+        <h2>Autor: Paweł Baradziej</h2>
+    </div>
+    </div>
+    <style>
+
+        .app{
+
+            background-color: lightgray;
+        }
+        /* Style The Dropdown Button */
+        .in{
+            height: 340px;
+        }
+
+        .texts{
+            padding: 12px 20px;
+            /*margin: 8px 0;*/
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 90%;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+
+        .txt{
+            padding: 12px 20px;
+            /*margin: 8px 0;*/
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 95%;
+
+            margin-left: 20px;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+
+        .lab{
+            margin-left: 10px;
+
+        }
+
+        .rights {
+            /*margin-right: 10px;*/
+            width: 47%;
+            /*padding: 12px 20px;*/
+            float: left;
+            /*height: 100px;*/
+            /*margin-top: 8px;*/
+            /*display: inline-block;*/
+            /*border: 1px solid #ccc;*/
+            /*border-radius: 4px;*/
+            /*box-sizing: border-box;*/
+        }
+        .textlong{
+            width: 100%;
+            margin-right: 10px;
+            padding: 12px 20px;
+            height: 160px;
+            margin-bottom: 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }
+        .textleft{
+            width: 95%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            float: right;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .pagination{
+
+            margin-left: 46%;
+        }
+
+
+        ul#messages li {
+            display: block;
+            width: 80%;
+            margin: 5px auto;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        ul#messages li.info {
+            background: #7f7;
+        }
+
+        ul#messages li.error {
+            background: #d00;
+            color: white;
+        }
+
+        .formError {
+            color: red;
+            font-style: italic;
+        }
+
+    </style>
+</footer>
+
+</body>
+</html>

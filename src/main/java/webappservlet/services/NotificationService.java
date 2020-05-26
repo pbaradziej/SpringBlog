@@ -1,6 +1,6 @@
 package webappservlet.services;
 
 public interface NotificationService {
-    void addInfo(String Info);
-    void addError(String Error);
+    void addInfoMessage(String msg);
+    void addErrorMessage(String msg);
 }

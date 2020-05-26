@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="site-head">
+<link rel="stylesheet" href="http://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="../public/css/index.css" th:href="@{/css/index.css}"/>
+<script src="https://kit.fontawesome.com/be1973d3d0.js" crossorigin="anonymous"></script>
+    <script src="../public/js/blog-scripts.js" th:src="@{/js/blog-scripts.js}"></script>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body><header th:fragment="site-header">
+    <header>
+<div class = "app">
+    <div class="header">
+        <h1>Wagon Blog</h1>
+        <p>O wagonach i innych</p>
+    </div>
+
+    <div class="topnav">
+        <a href="index.html" th:href="@{/1}" style="float:left" sec:authorize="isAuthenticated()"><i class="fas fa-train"></i></a>
+        <a href="login.html" th:href="@{/login}" style="float:right" sec:authorize="isAnonymous()"><i class="fas fa-address-card"></i> Zaloguj się</a>
+        <a href="register.html" th:href="@{/register}" style="float:right" sec:authorize="isAnonymous()"><i class="fas fa-sign-in-alt"></i> Zarejestruj się</a>
+        <div id="logged-in-info">
+            <span sec:authorize="isAuthenticated()">
+                    Hello, <b><span sec:authentication="name"></span></b>
+                <form method="post" th:action="@{/logout}">
+                           <input type="submit" value="Logout"/>
+                </form>
+                </span>
+        </div>
+    </div>
+
+
+
+
+</div>
+        <ul id="messages" th:with="notifyMessages=${session[T(webappservlet.services
+          .NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY]}">
+            <li th:each="msg : ${notifyMessages}" th:text="${msg.text}"
+                th:class="${#strings.toLowerCase(msg.type)}">
+            </li>
+            <span th:if="${notifyMessages}" th:remove="all" th:text="${session[
+          T(webappservlet.services.NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY].clear()}"></span>
+
+        </ul>
+    </header>
+</header>
+</body>
+</html>
