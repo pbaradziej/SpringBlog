@@ -28,7 +28,7 @@
     <span class="formError" th:if="${#fields.hasErrors('email')}"
           th:errors="*{email}">Invalid email</span>
 
-<!--    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
     <div><input type="submit" value="Register"/>
         </div>

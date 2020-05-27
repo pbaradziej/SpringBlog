@@ -20,15 +20,12 @@
 
     <div class="topnav">
         <a href="index.html" th:href="@{/1}" style="float:left" sec:authorize="isAuthenticated()"><i class="fas fa-train"></i></a>
-        <a href="login.html" th:href="@{/login}" style="float:right" sec:authorize="isAnonymous()"><i class="fas fa-address-card"></i> Zaloguj się</a>
         <a href="register.html" th:href="@{/register}" style="float:right" sec:authorize="isAnonymous()"><i class="fas fa-sign-in-alt"></i> Zarejestruj się</a>
+        <a href="login.html" th:href="@{/login}" style="float:right" sec:authorize="isAnonymous()"><i class="fas fa-address-card"></i> Zaloguj się</a>
         <div id="logged-in-info">
-            <span sec:authorize="isAuthenticated()">
-                    Hello, <b><span sec:authentication="name"></span></b>
-                <form method="post" th:action="@{/logout}">
-                           <input type="submit" value="Logout"/>
-                </form>
-                </span>
+            <a th:method="post" th:href="@{/logout}" th:action="@{/logout}" style="float:right" type="submit" sec:authorize="isAuthenticated()">
+                <i class="fas fa-sign-in-alt"></i>Wyloguj się</a>
+            <div class ="hello" style="float:right" sec:authorize="isAuthenticated()">Hello, <b><span sec:authentication="name"></span></b></div>
         </div>
     </div>
 

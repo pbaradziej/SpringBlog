@@ -4,25 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import webappservlet.data.Post;
-import webappservlet.data.User;
 import webappservlet.repositories.PostRepository;
 
-
-import javax.validation.Valid;
 import java.util.List;
 
 @Service
 @Primary
 public class PostServiceJpaImpl implements PostService {
-
-    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     private PostRepository postRepo;

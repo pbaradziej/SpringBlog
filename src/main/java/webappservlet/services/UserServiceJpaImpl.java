@@ -2,6 +2,7 @@ package webappservlet.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import webappservlet.data.User;
@@ -18,6 +19,9 @@ public class UserServiceJpaImpl implements UserService {
 
     @Autowired
     private UserRepository userRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private NotificationService notificationService;
@@ -60,7 +64,7 @@ public class UserServiceJpaImpl implements UserService {
     public String registerSuccessful(RegisterForm registerForm) {
         User user = new User();
         user.setUsername(registerForm.getUsername());
-        user.setPassword(registerForm.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(registerForm.getPassword()));
         user.setEmail(registerForm.getEmail());
         create(user);
 
