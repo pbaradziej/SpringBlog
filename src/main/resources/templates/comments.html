@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:visibility="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script type="text/javascript" src="/../public/js/app.js"></script>
+
+
+<head th:replace="layout :: site-head">
+    <title>Edit Post</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header"></header>
+
+<div class="row">
+    <div class="leftcolumn">
+            <main id="posts">
+        <article th:each="post : ${postid}">
+            <div class="column2">
+            <div class="column">
+                <div class="top">
+            <div class="left">
+                <h2 class="titles" th:text="${post.title}">Title</h2>
+                <div class="categorydate">
+                    <span th:text="${post.category}"></span>
+                    <i class="fas fa-calendar-day"></i>
+                    <span th:text="${#dates.format(post.date, 'dd-MMM-yyyy')}"></span>
+                    <i>by</i>
+                    <span th:text="${post.author.username}"></span>
+                </div>
+                <div class = "image"><img th:src="@{${post.img}}"></div>
+            </div>
+            <span th:if="${#authentication.name}==${post.author.username} or ${#authentication.credentials}==${post.author.admin}" >
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                <div class="dropdown-content">
+                                <a th:href="@{'/edit/' + ${post.id}}">Edit</a>
+                                    <a th:href="@{'/delete/' + ${post.id}}">Delete</a>
+                                </div>
+                                </div>
+                                </span>
+            <p class="text" th:utext="${post.body}"></p>
+                </div>
+            </div>
+
+                <form class="form-inline">
+                    <label for="connect"></label>
+                    <button id="connect" class="msg" type="submit">Show comments</button>
+                </form>
+
+                    <form id="message" class="form-inline">
+                        <input type="text" id="user" class="comma" placeholder="Username">
+                        <input type="text" id="comment" class="comm" placeholder="Text">
+                        <button id="send" class="msg" type="submit">Add Comment</button>
+                    </form>
+
+                <div class="rows">
+                    <div class="col-md-12">
+                        <table id="conversation" class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Comments</th>
+                            </tr>
+                            </thead>
+                            <tbody id="comments">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+            </main>
+    </div>
+
+
+    <footer th:replace="footer :: site-footer"></footer>
+</div>
+</body>
+
+</html>

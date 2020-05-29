@@ -182,7 +182,7 @@ input[type=submit] {
     background-color: white;
     float: left;
 
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
     width: 100%;
     border-style: solid;
     border-radius: 25px;
