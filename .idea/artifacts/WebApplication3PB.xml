@@ -4,7 +4,7 @@
     <root id="archive" name="WebApplication5PB.war">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="WebApplication6PB" />
+          <element id="module-output" name="WebApplication7PB" />
         </element>
       </element>
       <element id="directory" name="META-INF">

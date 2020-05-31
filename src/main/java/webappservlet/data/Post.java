@@ -5,6 +5,7 @@ import java.util.Date;
 
 @Entity
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,6 +16,17 @@ public class Post {
     private User author;
     private Date date = new Date();
     private String img;
+
+    public Post() {
+    }
+
+    public Post(Long id, String title,String category, String body, User author) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.author = author;
+        this.category = category;
+    }
 
     public String getImg() {
         return img;
@@ -50,17 +62,6 @@ public class Post {
 
     public User getAuthor() { return author; }
 
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", body='" + body + '\'' +
-                ", author=" + author +
-                ", date=" + date +
-                '}';
-    }
-
     public void setAuthor(User author) { this.author = author; }
 
     public Date getDate() {
@@ -79,15 +80,17 @@ public class Post {
         this.category = category;
     }
 
-    public Post() {
-    }
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", category= " +category +"\n"+
+                ", body='" + body + '\'' +
+                ", author=" + author +
+                ", date=" + date +
+                '}';
 
-    public Post(Long id, String title,String category, String body, User author) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-        this.author = author;
-        this.category = category;
     }
 
     }

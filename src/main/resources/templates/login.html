@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:visibility="http://www.w3.org/1999/xhtml">
 
-<head th:replace="layout :: site-head">
+<head th:replace="header :: site-head">
     <title>Login</title>
 </head>
 <body>
-<header th:replace="layout :: site-header"></header>
+<header th:replace="header :: site-header"></header>
 
 <div class="row">
     <div class="leftcolumn">
-        <div class="in">
+        <div class="column">
         <form onkeyup="validate()" method="post" th:object="${loginForm}">
             <div><label class ="lab" for="username">    Username:</label></div>
             <input class="txt" id="username" type="text" name="username" th:value="*{username}" />
@@ -23,7 +23,6 @@
                   th:errors="*{password}">Invalid password</span>
 
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-
 
             <div><input type="submit" value="Login"/>
                 </div>

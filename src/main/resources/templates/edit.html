@@ -1,13 +1,14 @@
     <!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org" xmlns:visibility="http://www.w3.org/1999/xhtml">
+    <html xmlns:th="http://www.thymeleaf.org"
+          xmlns:visibility="http://www.w3.org/1999/xhtml">
 
-    <head th:replace="layout :: site-head">
+    <head th:replace="header :: site-head">
         <title>Edit Post</title>
     </head>
 
     <body>
 
-    <header th:replace="layout :: site-header"></header>
+    <header th:replace="header :: site-header"></header>
 
     <div class="row">
         <div class="leftcolumn">
@@ -16,7 +17,7 @@
           th:method="patch">
         <head>
             <style>
-                button {background-color: #4CAF50; /* Green */
+                button {background-color: #4CAF50;
                     border: none;
                     color: white;
                     padding: 15px 32px;

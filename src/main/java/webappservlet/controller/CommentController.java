@@ -21,5 +21,4 @@ public class CommentController {
         return new WebSocket(HtmlUtils.htmlEscape(comment.getUser()) + time
                  + "<br>" + HtmlUtils.htmlEscape(comment.getComment()));
     }
-
 }

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout :: site-head">
+<head th:replace="header :: site-head">
     <title>Register</title>
 </head>
 
 <body>
 
-<header th:replace="layout :: site-header"></header>
+<header th:replace="header :: site-header"></header>
 
 <div class="row">
     <div class="leftcolumn">
-        <div class="in">
+        <div class="column">
 <form th:action="@{/register}" th:object="${registerForm}" th:method="post" >
     <div><label class ="lab" for="username">    Username:</label></div>
     <input class="txt" id="username" type="text" name="username" th:value="*{username}"/>

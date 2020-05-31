@@ -3,20 +3,29 @@ package webappservlet.data;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long author_id;
     private String username;
     private String password;
     private String email;
-    private String role;
+    private String role = "ROLE_USER";
 
-    private String admin="ROLE_ADMIN";
+    private String admin="admin";
 
     @OneToMany(mappedBy = "author")
     private Set<Post> post = new HashSet<>();
+
+    public User() {
+    }
+
+    public User(Long id, String username, String email) {
+        this.author_id = id; this.username = username; this.email=email;
+    }
 
     public String getAdmin(){return admin;}
     public Long getId() { return author_id; }
@@ -31,11 +40,7 @@ public class User {
     public void setRole(String role) { this.role = role; }
     public Set<Post> getPosts() { return post; }
     public void setPosts(Set<Post> posts) { this.post = posts; }
-    public User() { }
 
-    public User(Long id, String username, String email) {
-        this.author_id = id; this.username = username; this.email=email;
-    }
 
     @Override
     public String toString() {

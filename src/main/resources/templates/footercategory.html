@@ -28,14 +28,17 @@
         </div>
     </div>
     </div>
-
     <div class="pagination">
-        <a href="/1">1</a>
-        <a href="/2">2</a>
-        <a href="/3">3</a>
-        <a href="/4">4</a>
-        <a href="/5">5</a>
-        <a href="/6">6</a>
+        <article th:each="category : ${filter} ">
+            <div th:if="${categoryStat.count<=1}">
+        <a th:href="@{'/category/'+ ${category.category} + '/1'}">1</a>
+        <a th:href="@{'/category/'+ ${category.category} + '/2'}">2</a>
+        <a th:href="@{'/category/'+ ${category.category} + '/3'}">3</a>
+        <a th:href="@{'/category/'+ ${category.category} + '/4'}">4</a>
+        <a th:href="@{'/category/'+ ${category.category} + '/5'}">5</a>
+        <a th:href="@{'/category/'+ ${category.category} + '/6'}">6</a>
+            </div>
+        </article>
     </div>
     <div class="footer">
         <h2>Autor: Paweł Baradziej</h2>

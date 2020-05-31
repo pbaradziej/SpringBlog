@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="header::site-head"></head>
+<div class = "app">
+    <header th:replace="header::site-header"></header>
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="in">
+                <form th:action="@{/create}" th:object="${posts}" th:method="post">
+                    <div class = "centr"><p>Stwórz nowy post</p></div>
+                    <div class = "lefts">
+                        <input type="hidden" id="id" th:field="*{id}"/>
+                        <input type="hidden" id="author.id" th:field="*{author.id}"/>
+                        <input class="texts" type = "text" id="title" th:field="*{title}" name = "titles" placeholder = "Title" required minlength="4" formControlName = "titles">
+                        <br/>
+                        <input class="texts" type = "text" id="category" th:field="*{category}" name = "category" placeholder = "category" formControlName = "category">
+                        <input class="texts" type = "text" id="img" th:field="*{img}" name = "category" placeholder = "LinkImage" formControlName = "category">
+                        <br/>
+                    </div>
+                    <div class ="rights">
+                        <input class= textlong type = "text" id="body" th:field="*{body}" name = "textlong" placeholder = "Text" formControlName = "category">
+                    </div>
+                    <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" value = "Add Post">
+                </form>
+            </div>
+            <br>
+
+            <main id="posts">
+                <article th:each="post : ${filter} ">
+                    <div class="column">
+                        <div class="top">
+                            <div class="left">
+                                <h2 class="titles" th:text="${post.title}">Title</h2>
+                                <div class="categorydate">
+                                    <span th:text="${post.category}"></span>
+                                    <i class="fas fa-calendar-day"></i>
+                                    <span th:text="${#dates.format(post.date, 'dd-MMM-yyyy')}"></span>
+                                    <i>by</i>
+                                    <span th:text="${post.author.username}"></span>
+                                </div>
+                                <div class = "image"><img th:src="@{${post.img}}"></div>
+                            </div>
+                            <span th:if="${#authentication.name}==${post.author.username} or ${#authentication.name}==${'admin'}" >
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                <div class="dropdown-content">
+                                <a th:href="@{'/edit/' + ${post.id}}">Edit</a>
+                                    <a th:href="@{'/delete/' + ${post.id}}">Delete</a>
+                                </div>
+                                </div>
+                                </span>
+                            <p class="text" th:utext="${post.body}"></p>
+                        </div>
+                    </div>
+                    <div class="add">
+                        <a href="comments.html" th:href="@{'/comments/' + ${post.id}}" style="float:left" sec:authorize="isAuthenticated()">Add comment</a>
+                    </div>
+                </article>
+            </main>
+        </div>
+        <footer th:replace="footercategory::site-footer"></footer>
+    </div>
+</div>
+</html>

@@ -5,7 +5,6 @@ public class Comment {
     private String user;
     private String comment;
 
-
     public Comment() {
     }
 

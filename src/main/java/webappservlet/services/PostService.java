@@ -9,6 +9,6 @@ public interface PostService {
     Post findById(Long id);
     Post create(Post post);
     Post edit(Post post);
-    List<Post> findCategory(String category);
+    List<Post> findCategory(String category,int page);
     void deleteById(Long id);
 }

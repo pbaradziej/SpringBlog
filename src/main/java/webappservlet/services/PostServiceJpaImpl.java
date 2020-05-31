@@ -3,7 +3,6 @@ package webappservlet.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import webappservlet.data.Post;
 import webappservlet.repositories.PostRepository;
@@ -33,9 +32,7 @@ public class PostServiceJpaImpl implements PostService {
     }
 
     @Override
-    public List<Post> findCategory(String category){
-        return this.postRepo.findCategory(category,PageRequest.of(0,5));
-    }
+    public List<Post> findCategory(String category,int page){ return this.postRepo.findCategory(category,PageRequest.of(page,5)); }
 
     @Override
     public Post create(Post post) {

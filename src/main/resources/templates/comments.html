@@ -9,13 +9,13 @@
 <script type="text/javascript" src="/../public/js/app.js"></script>
 
 
-<head th:replace="layout :: site-head">
+<head th:replace="header :: site-head">
     <title>Edit Post</title>
 </head>
 
 <body>
 
-<header th:replace="layout :: site-header"></header>
+<header th:replace="header :: site-header"></header>
 
 <div class="row">
     <div class="leftcolumn">
@@ -35,7 +35,7 @@
                 </div>
                 <div class = "image"><img th:src="@{${post.img}}"></div>
             </div>
-            <span th:if="${#authentication.name}==${post.author.username} or ${#authentication.credentials}==${post.author.admin}" >
+                    <span th:if="${#authentication.name}==${post.author.username} or ${#authentication.name}==${'admin'}" >
                                 <div class="dropdown">
                                     <button class="dropbtn">
                                         <i class="fas fa-ellipsis-v"></i>
@@ -79,7 +79,6 @@
         </article>
             </main>
     </div>
-
 
     <footer th:replace="footer :: site-footer"></footer>
 </div>
